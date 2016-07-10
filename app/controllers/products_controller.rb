@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_post, only: [ :show, :edit, :update, :destroy]
+  before_action :set_product, only: [ :show, :edit, :update, :destroy]
   def index
     @q = Product.order(created_at: :desc).ransack(params[:q])
     @products =@q.result.page(params[:page]).per(15)
@@ -10,11 +10,11 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @Product = Product.new
+    @product = Product.new
   end
 
   def create
-    @Product = Product.new(product_params)
+    @product = Product.new(product_params)
     @product.save
     redirect_to "/products/#{@product.id}"
   end

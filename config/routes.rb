@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   resources :products
+  resources :bodys do
+    resources :reviews
+  end
   root 'products#index'
+end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -56,4 +60,3 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end

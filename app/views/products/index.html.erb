@@ -10,14 +10,16 @@
 </div>
 <div class="row">
   <div class="col-md-8">
+
     <% @products.each do |product| %>
       <div class="article">
         <h2>作品名：<%= product.title %></h2>
         <p>カテゴリ：<%= product.category %></p>
-        <p>作品画像：<%= product.image_url %></p>
+        <p>サイズ：<%= product.size %></p>
+        <p><%= image_tag Product.first.image_url, alt: "作品画像" %></p>
         <p>作成日：<%= product.created_at %></p>
         <p><%= truncate(product.detail, length: 50) %></p>
-        <p><%= link_to "続きを読む", product, class: "btn btn-default" %></p>
+        <p><%= link_to "買う", product, class: "btn btn-default" %>   <%= link_to "編集・削除", product, class: "btn btn-default" %>   <%= link_to "評価・感想を書く", product, class: "btn btn-default" %></p>
       </div>
     <% end %>
   </div>
@@ -27,7 +29,7 @@
       <%= image_tag User.first.image_url, alt: "ユーザーアイコン" %>
       <div class="caption">
         <h3>ユーザー名：<%= User.first.name %></h3>
-        <p>詳細：<%= User.first.detail %></p>
+        <p>詳細：<%= User.first.self_introduction %></p>
       </div>
     </div>
     <div class="list-group">
