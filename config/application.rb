@@ -24,10 +24,3 @@ module PumpieArts
     config.active_record.raise_in_transactional_callbacks = true
   end
 end
-
-
-
-
-
- config.assets.compile = true
- config.serve_static_assets = true
