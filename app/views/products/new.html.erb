@@ -1,0 +1,30 @@
+<div class="col-md-12">
+  <h1>作品出品</h1>
+  <%= form_for @product do |f| %>
+    <div class="form-group">
+      <%= f.label "作品名" %>
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label "カテゴリ" %>
+      <%= f.text_field :category, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label "サイズ" %>
+      <%= f.text_area :size, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label "詳細" %>
+      <%= f.text_area :detail, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label "最低売値" %>
+      <%= f.text_area :lowest_price, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label "作品画像" %>
+      <%= f.text_area :image_url, class: "form-control" %>
+    </div>
+    <%= f.submit '登録する', class: "btn btn-primary" %>
+  <% end %>
+</div>

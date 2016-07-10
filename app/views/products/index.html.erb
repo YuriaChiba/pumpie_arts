@@ -1,0 +1,39 @@
+<div class="col-md-12">
+  <div class="form-inline pull-right" style="margin-bottom:10px;">
+    <%= search_form_for @q do |f| %>
+      <div class="form-group">
+        <%= f.search_field :title_or_detail_cont, placeholder: "作品名かキーワードを検索", class: "form-control" %>
+        <%= f.submit "検索", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-8">
+    <% @products.each do |product| %>
+      <div class="article">
+        <h2>作品名：<%= product.title %></h2>
+        <p>カテゴリ：<%= product.category %></p>
+        <p>作品画像：<%= product.image_url %></p>
+        <p>作成日：<%= product.created_at %></p>
+        <p><%= truncate(product.detail, length: 50) %></p>
+        <p><%= link_to "続きを読む", product, class: "btn btn-default" %></p>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="col-md-4">
+    <div class="thumbnail">
+      <%= image_tag User.first.image_url, alt: "ユーザーアイコン" %>
+      <div class="caption">
+        <h3>ユーザー名：<%= User.first.name %></h3>
+        <p>詳細：<%= User.first.detail %></p>
+      </div>
+    </div>
+    <div class="list-group">
+    <% @new_products.each do |product| %>
+      <%= link_to product.title, product, class: "list-group-item" %>
+      <% end %>
+    </div>
+  </div>
+</div>

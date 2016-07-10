@@ -1,0 +1,12 @@
+<div class="col-md-12">
+  <h1><%= @product.title %></h1>
+  <p>カテゴリ: <%= @product.category %></p>
+  <p>投稿日:<%= @product.created_at %></p>
+  <hr>
+  <p>
+    <%= simple_format(@product.detail) %>
+  </p>
+  <hr>
+  <%= link_to "編集", edit_product_path(@product), class: "btn btn-default" %>
+  <%= link_to "削除", product_path(@product), class: "btn btn-default", method: :delete %>
+</div>
